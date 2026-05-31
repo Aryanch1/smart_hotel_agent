@@ -1,94 +1,183 @@
-**🏨 Smart Hotel Reservation Agent**
-Welcome to the Smart Hotel Reservation Agent – an AI-powered web application that helps users search for the best hotel deals across multiple booking sites and assists in completing hotel bookings conversationally.
-Built with Streamlit, powered by Gemini LLM via Google ADK, this project delivers an intelligent and user-friendly hotel booking experience.
+# Smart Hotel Reservation Agent
 
-**✨ Features**
+## Overview
 
-**🔍 Hotel Search Assistant**
-Uses Google Search and AI to retrieve up to 15 hotel options based on user queries.
+Smart Hotel Reservation Agent is an AI-powered hotel discovery and booking assistant that combines Large Language Models (LLMs), workflow automation, and conversational interfaces to simplify hotel search and reservation workflows.
 
-**💰 Price Comparison Engine**
-Simulates pricing from multiple platforms like Booking.com, Agoda, Trivago, etc., and presents the best deals.
+The application enables users to search hotels, compare prices across booking platforms, and complete reservations through a multi-step conversational experience.
 
-**🛏️ Conversational Booking Flow**
-Interactive assistant to help users book a hotel via steps like selecting room type, choosing dates, entering guest info, and final confirmation.
+Built using Python, Streamlit, Google ADK, and Gemini LLM.
 
-**📊 Summary View**
-Displays a concise summary of search results including price ranges and total hotels found.
+---
 
-**✅ Real-Time Booking Status Tracking**
-Sidebar panel shows the current step and lets users cancel bookings if needed.
+## Problem Statement
 
-**🚀 Technologies Used**
-**Python 3.10+**	Core programming language
-**Streamlit**	Frontend web interface
-**Google AD**K	LLM-based agents + tool integration
-**Gemini-2.0-Flash**	Language model used for search and conversation
-**LiteLLM**	Lightweight LLM model wrapper
-**Pydantic**	Data validation for structured responses
+Travelers often need to compare hotel prices across multiple booking platforms and manually navigate complex booking workflows.
 
-**📦 Installation**
-Make sure you have Python 3.10+ installed.
+This project streamlines the process by providing:
 
-**Clone the Repository**
-git clone https://github.com/your-username/hotel-agent.git
-cd hotel-agent
+* Conversational hotel search
+* AI-powered recommendations
+* Booking workflow automation
+* Price comparison aggregation
+* Guided reservation assistance
 
-**Install Dependencies**
-pip install -r requirements.txt
+---
 
-**Set Google API Key**
-Replace <API KEY HERE> in the code or use environment variable:
-export GOOGLE_API_KEY="your_google_api_key_here"
+## System Architecture
 
-**📂 File Structure**
-.
-├── hotel_agent_app.py       # Main Streamlit application
-├── requirements.txt         # Project dependencies
-└── README.md                # This file
-🧠 Agent Architecture
-The app utilizes two custom LLM Agents:
+```text
+User
+ │
+ ▼
+Streamlit Frontend
+ │
+ ▼
+Gemini LLM Agent
+ │
+ ├───────────────┐
+ │               │
+ ▼               ▼
+Hotel Search     Booking Agent
+Agent            Workflow Agent
+ │               │
+ ▼               ▼
+Price Engine     Booking State
+Comparison       Management
+ │
+ ▼
+Structured Response
+Generation
+```
 
-**1. 🔍 hotel_search_agent**
-Searches for hotels via google_search tool.
-Returns structured hotel data in JSON format.
-Enriches hotel data with mock price comparison from 8 booking sites.
+---
 
-**2. 📘 booking_agent**
-Conversational flow for hotel booking.
-Handles room type selection, dates, guest info, and confirmation.
-Maintains multi-step booking state in memory.
+## Key Features
 
-**💬 Sample Commands**
-Try the following prompts:
-Find hotels in Goa under 10000
-Book The Leela Palace
-2 guests for 2 nights
-confirm booking
+### Conversational Hotel Search
 
-**🧪 Demo Walkthrough**
-1.	Enter prompt like "Find hotels in Mumbai"
-2.	View hotel cards with best prices from multiple sites
-3.	Click "📋 Book" to begin booking
-4.	Select room type, dates, number of guests
-5.	Confirm your booking and receive booking ID
+* Natural language hotel search
+* Location-based recommendations
+* AI-assisted filtering
 
-**📌 Notes**
-The hotel prices and links are mocked for demonstration.
-Booking logic is state-driven and easily extendable.
-All sessions are stored in-memory, not persistent.
+### Price Comparison Engine
 
-**🧾 Requirements**
-litellm
-streamlit
-google-adk
-Install via:
+* Aggregates hotel pricing
+* Compares multiple booking platforms
+* Identifies lowest-cost options
 
-**bash**
-pip install -r requirements.txt
+### Multi-Step Reservation Workflow
 
-**🛠 Future Enhancements**
-🔐 Add authentication and user accounts
-🧠 Integrate real hotel APIs like Booking.com, Expedia
-📧 Send email confirmations using SMTP or SendGrid
-💾 Add persistent session/database support
+* Room selection
+* Date selection
+* Guest information collection
+* Booking confirmation
+
+### State Management
+
+* Tracks booking progress
+* Maintains user workflow state
+* Supports cancellation and restart functionality
+
+### Structured AI Responses
+
+* JSON-based hotel data generation
+* Typed validation using Pydantic
+* Consistent response formatting
+
+---
+
+## AI Engineering Components
+
+### LLM Integration
+
+* Gemini 2.0 Flash
+* Google ADK
+* LiteLLM
+
+### Prompt Engineering
+
+* Structured prompts
+* Guided booking interactions
+* Hotel recommendation generation
+
+### Agent-Based Workflow Design
+
+* Hotel Search Agent
+* Booking Workflow Agent
+* State-aware conversation handling
+
+---
+
+## Technology Stack
+
+### AI Layer
+
+* Gemini 2.0 Flash
+* Google ADK
+* LiteLLM
+
+### Backend
+
+* Python
+* Pydantic
+
+### Frontend
+
+* Streamlit
+
+---
+
+## Repository Structure
+
+```text
+smart_hotel_agent/
+│
+├── agent.py
+├── requirements.txt
+├── README.md
+```
+
+---
+
+## Sample User Queries
+
+```text
+Find hotels in Miami under $200 per night
+
+Show luxury hotels in New York
+
+Book The Leela Palace for 2 guests
+
+Confirm booking
+```
+
+---
+
+## Engineering Highlights
+
+* Designed an agent-based AI workflow using Gemini LLM
+* Implemented conversational reservation workflows
+* Built structured hotel search and recommendation system
+* Developed state-aware booking management process
+* Integrated tool-driven hotel search functionality
+* Used Pydantic models for structured AI outputs
+
+---
+
+## Future Improvements
+
+* RAG-based travel recommendations
+* Real hotel API integrations
+* Persistent booking storage
+* Authentication and user accounts
+* Email booking confirmations
+* Multi-agent orchestration using LangGraph
+
+---
+
+## Author
+
+Aryanmouli Cherupalli
+
+Software Engineer | Java | Spring Boot | AI Applications | Cloud
